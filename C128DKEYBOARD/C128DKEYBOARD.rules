@@ -1,0 +1,112 @@
+
+(rules PCB C128DKEYBOARD
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 2396)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 4.4)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.3)
+    )
+  )
+  (rule
+    (width 500.0)
+    (clear 200.0)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd-smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-Keyboard" "Via[0-1]_800:400_um" Keyboard
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    Keyboard "Via[0-1]_800:400_um-Keyboard"
+  )
+  (class default
+    "unconnected-(K1-Pad2)" "unconnected-(K2-Pad2)" "unconnected-(K3-Pad2)" PIN22 "unconnected-(K14-Pad2)" "unconnected-(K15-Pad2)" "unconnected-(K16-Pad2)" "unconnected-(K18-Pad2)"
+    "unconnected-(K19-Pad2)" "unconnected-(K20-Pad2)" "unconnected-(K43-Pad2)" "unconnected-(K44-Pad2)" PIN12 PIN13 PIN8 "unconnected-(K102-Pad2)"
+    "unconnected-(K1-Pad1)" "unconnected-(K2-Pad1)" "unconnected-(K3-Pad1)" PIN7 "unconnected-(K14-Pad1)" "unconnected-(K15-Pad1)" "unconnected-(K16-Pad1)" "unconnected-(K18-Pad1)"
+    "unconnected-(K19-Pad1)" "unconnected-(K20-Pad1)" "unconnected-(K43-Pad1)" "unconnected-(K44-Pad1)" PIN6 PIN5 PIN21 "unconnected-(K102-Pad1)"
+    PIN24 PIN1 PIN23 PIN9 PIN14 PIN10 PIN20 PIN11
+    PIN19 PIN18 PIN17 PIN16 PIN15 PIN3 PIN25 SHIFTLOCK
+    CAPSLED "Net-(D1-Pad2)" "Net-(D2-Pad2)" SHIFTLED "Net-(D3-Pad2)" 4080LED "Net-(D4-Pad2)" "unconnected-(J1-Pad2)"
+    4080TOGGLE CAPSLOCTOGGLE "unconnected-(U1-Pad1)" ~{LOCKOUT} "unconnected-(U1-Pad4)" "unconnected-(U1-Pad5)" "unconnected-(U1-Pad11)" "unconnected-(U1-Pad12)"
+    "unconnected-(U1-Pad13)" "unconnected-(U1-Pad14)" "unconnected-(U1-Pad18)" "unconnected-(U1-Pad19)" "unconnected-(U3-Pad4)" "unconnected-(U3-Pad5)" "unconnected-(U3-Pad6)" "unconnected-(U3-Pad8)"
+    "unconnected-(U3-Pad9)" "unconnected-(U3-Pad10)" "unconnected-(U3-Pad11)" "unconnected-(U3-Pad12)" "unconnected-(U3-Pad13)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Keyboard
+    (clearance_class Keyboard)
+    (via_rule Keyboard)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class POWER
+    VCC GND
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 1000.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
